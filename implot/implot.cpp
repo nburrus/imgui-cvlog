@@ -1835,6 +1835,19 @@ ImPlotLimits GetPlotQuery(int y_axis_in) {
     return result;
 }
 
+bool IsXAxisAutoFitRequested() {
+    ImPlotContext& gp = *GImPlot;
+    return gp.FitThisFrame && gp.FitX;
+}
+
+bool IsYAxisAutoFitRequested(int y_axis_in) {
+    ImPlotContext& gp = *GImPlot;
+    IM_ASSERT_USER_ERROR(y_axis_in >= -1 && y_axis_in < IMPLOT_Y_AXES, "y_axis needs to between -1 and IMPLOT_Y_AXES");
+    IM_ASSERT_USER_ERROR(gp.CurrentPlot != NULL, "IsYAxisAutoFitRequested() Needs to be called between BeginPlot() and EndPlot()!");
+    const int y_axis = y_axis_in >= 0 ? y_axis_in : gp.CurrentPlot->CurrentYAxis;
+    return gp.FitThisFrame && gp.FitY[y_axis];
+}
+    
 bool IsLegendEntryHovered(const char* label_id) {
     ImPlotContext& gp = *GImPlot;
     IM_ASSERT_USER_ERROR(gp.CurrentPlot != NULL, "IsPlotItemHighlight() needs to be called between BeginPlot() and EndPlot()!");
