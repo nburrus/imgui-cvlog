@@ -177,7 +177,8 @@ bool    ImGui_ImplOpenGL3_Init(const char* glsl_version)
         glsl_version = "#version 300 es";
 #elif defined(__APPLE__)
     if (glsl_version == NULL)
-        glsl_version = "#version 150";
+        // glsl_version = "#version 150";
+        glsl_version = "#version 120"; // FIXME: nburrus: does not work with 150 for me.
 #else
     if (glsl_version == NULL)
         glsl_version = "#version 130";
