@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D19DDBA248D842C00AAD3E3 /* imgui_cvlog_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D19DDB8248D842C00AAD3E3 /* imgui_cvlog_demo.cpp */; };
-		2D80989A2479A68E007845B6 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D8098992479A68E007845B6 /* main.mm */; };
+		2D19DDBA248D842C00AAD3E3 /* imgui_cvlog_demo_gl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D19DDB8248D842C00AAD3E3 /* imgui_cvlog_demo_gl.cpp */; };
+		2D80989A2479A68E007845B6 /* main_cocoa_opengl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D8098992479A68E007845B6 /* main_cocoa_opengl.mm */; };
 		2D8098BF2479A82B007845B6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8098BE2479A82B007845B6 /* Cocoa.framework */; };
 		2D8098C82479AAC0007845B6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8098BC2479A820007845B6 /* OpenGL.framework */; };
 		2D809A392479AEA7007845B6 /* imgui_widgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A2E2479AEA7007845B6 /* imgui_widgets.cpp */; };
@@ -21,6 +21,25 @@
 		2D809A4D2479B0CD007845B6 /* implot_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A4A2479B0CD007845B6 /* implot_demo.cpp */; };
 		2D809A502479B7D5007845B6 /* imgui_cvlog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A4E2479B7D5007845B6 /* imgui_cvlog.cpp */; };
 		2D809A5C247A3D68007845B6 /* imgui_cvlog_view_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A5A247A3D68007845B6 /* imgui_cvlog_view_osx.mm */; };
+		2DFC5D5425053C4A00E87D7A /* implot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A482479B0CD007845B6 /* implot.cpp */; };
+		2DFC5D5525053C4A00E87D7A /* imgui_impl_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A352479AEA7007845B6 /* imgui_impl_osx.mm */; };
+		2DFC5D5725053C4A00E87D7A /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A382479AEA7007845B6 /* imgui_draw.cpp */; };
+		2DFC5D5925053C4A00E87D7A /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A372479AEA7007845B6 /* imgui_demo.cpp */; };
+		2DFC5D5A25053C4A00E87D7A /* imgui_cvlog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A4E2479B7D5007845B6 /* imgui_cvlog.cpp */; };
+		2DFC5D5B25053C4A00E87D7A /* imgui_widgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A2E2479AEA7007845B6 /* imgui_widgets.cpp */; };
+		2DFC5D5C25053C4A00E87D7A /* implot_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A4A2479B0CD007845B6 /* implot_demo.cpp */; };
+		2DFC5D5D25053C4A00E87D7A /* imgui_impl_opengl3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A342479AEA7007845B6 /* imgui_impl_opengl3.cpp */; };
+		2DFC5D5F25053C4A00E87D7A /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A322479AEA7007845B6 /* imgui.cpp */; };
+		2DFC5D6125053C4A00E87D7A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8098BC2479A820007845B6 /* OpenGL.framework */; };
+		2DFC5D6225053C4A00E87D7A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8098BE2479A82B007845B6 /* Cocoa.framework */; };
+		2DFC5D6A25053EE100E87D7A /* implot_items.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DFC5D6925053EE100E87D7A /* implot_items.cpp */; };
+		2DFC5D6B25053EE100E87D7A /* implot_items.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DFC5D6925053EE100E87D7A /* implot_items.cpp */; };
+		2DFC5D712505428500E87D7A /* imgui_cvlog_gl_opencv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DFC5D6E2505428500E87D7A /* imgui_cvlog_gl_opencv.cpp */; };
+		2DFC5D722505428500E87D7A /* main_glfw_opencv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DFC5D702505428500E87D7A /* main_glfw_opencv.cpp */; };
+		2DFC5D7525057FF500E87D7A /* imgui_impl_glfw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DFC5D7325057FF500E87D7A /* imgui_impl_glfw.cpp */; };
+		2DFC5D7A2505853900E87D7A /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFC5D772505853900E87D7A /* libGLEW.2.1.0.dylib */; };
+		2DFC5D7B2505853900E87D7A /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFC5D782505853900E87D7A /* libglfw.3.3.dylib */; };
+		2DFC5D7C2505853900E87D7A /* libopencv_core.4.4.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFC5D792505853900E87D7A /* libopencv_core.4.4.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,13 +52,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		2DFC5D6325053C4A00E87D7A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2D19DDB8248D842C00AAD3E3 /* imgui_cvlog_demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_cvlog_demo.cpp; sourceTree = "<group>"; };
-		2D19DDB9248D842C00AAD3E3 /* imgui_cvlog_demo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_cvlog_demo.h; sourceTree = "<group>"; };
-		2D8098962479A68E007845B6 /* CVLog */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CVLog; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D8098992479A68E007845B6 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		2D19DDB8248D842C00AAD3E3 /* imgui_cvlog_demo_gl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_cvlog_demo_gl.cpp; sourceTree = "<group>"; };
+		2D19DDB9248D842C00AAD3E3 /* imgui_cvlog_demo_gl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_cvlog_demo_gl.h; sourceTree = "<group>"; };
+		2D8098962479A68E007845B6 /* CVLog-Cocoa-OpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CVLog-Cocoa-OpenGL"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D8098992479A68E007845B6 /* main_cocoa_opengl.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main_cocoa_opengl.mm; sourceTree = "<group>"; };
 		2D8098BC2479A820007845B6 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		2D8098BE2479A82B007845B6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2D8098C32479AA22007845B6 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
@@ -67,6 +95,17 @@
 		2D809A5A247A3D68007845B6 /* imgui_cvlog_view_osx.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = imgui_cvlog_view_osx.mm; sourceTree = "<group>"; };
 		2D809A5B247A3D68007845B6 /* imgui_cvlog_view_osx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imgui_cvlog_view_osx.h; sourceTree = "<group>"; };
 		2DB25AD32483B6FC0029FF8F /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		2DFC5D6725053C4A00E87D7A /* CVLog-GLFW-OpenCV */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CVLog-GLFW-OpenCV"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DFC5D6825053EE100E87D7A /* implot_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = implot_internal.h; sourceTree = "<group>"; };
+		2DFC5D6925053EE100E87D7A /* implot_items.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = implot_items.cpp; sourceTree = "<group>"; };
+		2DFC5D6E2505428500E87D7A /* imgui_cvlog_gl_opencv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imgui_cvlog_gl_opencv.cpp; sourceTree = "<group>"; };
+		2DFC5D6F2505428500E87D7A /* imgui_cvlog_gl_opencv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imgui_cvlog_gl_opencv.h; sourceTree = "<group>"; };
+		2DFC5D702505428500E87D7A /* main_glfw_opencv.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = main_glfw_opencv.cpp; sourceTree = "<group>"; };
+		2DFC5D7325057FF500E87D7A /* imgui_impl_glfw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui_impl_glfw.cpp; path = examples/imgui_impl_glfw.cpp; sourceTree = "<group>"; };
+		2DFC5D7425057FF500E87D7A /* imgui_impl_glfw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imgui_impl_glfw.h; path = examples/imgui_impl_glfw.h; sourceTree = "<group>"; };
+		2DFC5D772505853900E87D7A /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0_1/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
+		2DFC5D782505853900E87D7A /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/Cellar/glfw/3.3.2/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
+		2DFC5D792505853900E87D7A /* libopencv_core.4.4.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.4.4.0.dylib; path = ../../../../../usr/local/Cellar/opencv/4.4.0_1/lib/libopencv_core.4.4.0.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,22 +118,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2DFC5D6025053C4A00E87D7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DFC5D7A2505853900E87D7A /* libGLEW.2.1.0.dylib in Frameworks */,
+				2DFC5D7B2505853900E87D7A /* libglfw.3.3.dylib in Frameworks */,
+				2DFC5D7C2505853900E87D7A /* libopencv_core.4.4.0.dylib in Frameworks */,
+				2DFC5D6125053C4A00E87D7A /* OpenGL.framework in Frameworks */,
+				2DFC5D6225053C4A00E87D7A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		2D80988D2479A68E007845B6 = {
 			isa = PBXGroup;
 			children = (
+				2DFC5D6D2505418700E87D7A /* glfw_opencv */,
+				2DFC5D6C250540D800E87D7A /* cocoa_opengl */,
 				2DB25AD32483B6FC0029FF8F /* TODO.md */,
 				2D809A462479B0CD007845B6 /* implot */,
 				2D809A2A2479AEA7007845B6 /* imgui */,
-				2D8098992479A68E007845B6 /* main.mm */,
 				2D809A4E2479B7D5007845B6 /* imgui_cvlog.cpp */,
 				2D809A4F2479B7D5007845B6 /* imgui_cvlog.h */,
-				2D19DDB9248D842C00AAD3E3 /* imgui_cvlog_demo.h */,
-				2D19DDB8248D842C00AAD3E3 /* imgui_cvlog_demo.cpp */,
-				2D809A5A247A3D68007845B6 /* imgui_cvlog_view_osx.mm */,
-				2D809A5B247A3D68007845B6 /* imgui_cvlog_view_osx.h */,
 				2D8098972479A68E007845B6 /* Products */,
 				2D8098BB2479A81F007845B6 /* Frameworks */,
 			);
@@ -103,7 +151,8 @@
 		2D8098972479A68E007845B6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2D8098962479A68E007845B6 /* CVLog */,
+				2D8098962479A68E007845B6 /* CVLog-Cocoa-OpenGL */,
+				2DFC5D6725053C4A00E87D7A /* CVLog-GLFW-OpenCV */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,6 +160,9 @@
 		2D8098BB2479A81F007845B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DFC5D772505853900E87D7A /* libGLEW.2.1.0.dylib */,
+				2DFC5D782505853900E87D7A /* libglfw.3.3.dylib */,
+				2DFC5D792505853900E87D7A /* libopencv_core.4.4.0.dylib */,
 				2D8098C32479AA22007845B6 /* Metal.framework */,
 				2D8098BE2479A82B007845B6 /* Cocoa.framework */,
 				2D8098BC2479A820007845B6 /* OpenGL.framework */,
@@ -121,6 +173,8 @@
 		2D809A2A2479AEA7007845B6 /* imgui */ = {
 			isa = PBXGroup;
 			children = (
+				2DFC5D7325057FF500E87D7A /* imgui_impl_glfw.cpp */,
+				2DFC5D7425057FF500E87D7A /* imgui_impl_glfw.h */,
 				2D809A2B2479AEA7007845B6 /* imgui.h */,
 				2D809A2C2479AEA7007845B6 /* imstb_textedit.h */,
 				2D809A2D2479AEA7007845B6 /* imconfig.h */,
@@ -142,6 +196,8 @@
 		2D809A462479B0CD007845B6 /* implot */ = {
 			isa = PBXGroup;
 			children = (
+				2DFC5D6825053EE100E87D7A /* implot_internal.h */,
+				2DFC5D6925053EE100E87D7A /* implot_items.cpp */,
 				2D809A472479B0CD007845B6 /* LICENSE */,
 				2D809A482479B0CD007845B6 /* implot.cpp */,
 				2D809A492479B0CD007845B6 /* README.md */,
@@ -151,12 +207,34 @@
 			path = implot;
 			sourceTree = "<group>";
 		};
+		2DFC5D6C250540D800E87D7A /* cocoa_opengl */ = {
+			isa = PBXGroup;
+			children = (
+				2D8098992479A68E007845B6 /* main_cocoa_opengl.mm */,
+				2D19DDB9248D842C00AAD3E3 /* imgui_cvlog_demo_gl.h */,
+				2D19DDB8248D842C00AAD3E3 /* imgui_cvlog_demo_gl.cpp */,
+				2D809A5A247A3D68007845B6 /* imgui_cvlog_view_osx.mm */,
+				2D809A5B247A3D68007845B6 /* imgui_cvlog_view_osx.h */,
+			);
+			path = cocoa_opengl;
+			sourceTree = "<group>";
+		};
+		2DFC5D6D2505418700E87D7A /* glfw_opencv */ = {
+			isa = PBXGroup;
+			children = (
+				2DFC5D6E2505428500E87D7A /* imgui_cvlog_gl_opencv.cpp */,
+				2DFC5D6F2505428500E87D7A /* imgui_cvlog_gl_opencv.h */,
+				2DFC5D702505428500E87D7A /* main_glfw_opencv.cpp */,
+			);
+			path = glfw_opencv;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2D8098952479A68E007845B6 /* CVLog */ = {
+		2D8098952479A68E007845B6 /* CVLog-Cocoa-OpenGL */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D80989D2479A68E007845B6 /* Build configuration list for PBXNativeTarget "CVLog" */;
+			buildConfigurationList = 2D80989D2479A68E007845B6 /* Build configuration list for PBXNativeTarget "CVLog-Cocoa-OpenGL" */;
 			buildPhases = (
 				2D8098922479A68E007845B6 /* Sources */,
 				2D8098932479A68E007845B6 /* Frameworks */,
@@ -166,9 +244,26 @@
 			);
 			dependencies = (
 			);
-			name = CVLog;
+			name = "CVLog-Cocoa-OpenGL";
 			productName = CVLog;
-			productReference = 2D8098962479A68E007845B6 /* CVLog */;
+			productReference = 2D8098962479A68E007845B6 /* CVLog-Cocoa-OpenGL */;
+			productType = "com.apple.product-type.tool";
+		};
+		2DFC5D5225053C4A00E87D7A /* CVLog-GLFW-OpenCV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DFC5D6425053C4A00E87D7A /* Build configuration list for PBXNativeTarget "CVLog-GLFW-OpenCV" */;
+			buildPhases = (
+				2DFC5D5325053C4A00E87D7A /* Sources */,
+				2DFC5D6025053C4A00E87D7A /* Frameworks */,
+				2DFC5D6325053C4A00E87D7A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CVLog-GLFW-OpenCV";
+			productName = CVLog;
+			productReference = 2DFC5D6725053C4A00E87D7A /* CVLog-GLFW-OpenCV */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -198,7 +293,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2D8098952479A68E007845B6 /* CVLog */,
+				2D8098952479A68E007845B6 /* CVLog-Cocoa-OpenGL */,
+				2DFC5D5225053C4A00E87D7A /* CVLog-GLFW-OpenCV */,
 			);
 		};
 /* End PBXProject section */
@@ -210,16 +306,37 @@
 			files = (
 				2D809A4C2479B0CD007845B6 /* implot.cpp in Sources */,
 				2D809A3C2479AEA7007845B6 /* imgui_impl_osx.mm in Sources */,
-				2D19DDBA248D842C00AAD3E3 /* imgui_cvlog_demo.cpp in Sources */,
+				2D19DDBA248D842C00AAD3E3 /* imgui_cvlog_demo_gl.cpp in Sources */,
 				2D809A3E2479AEA7007845B6 /* imgui_draw.cpp in Sources */,
-				2D80989A2479A68E007845B6 /* main.mm in Sources */,
+				2D80989A2479A68E007845B6 /* main_cocoa_opengl.mm in Sources */,
 				2D809A3D2479AEA7007845B6 /* imgui_demo.cpp in Sources */,
 				2D809A502479B7D5007845B6 /* imgui_cvlog.cpp in Sources */,
+				2DFC5D6A25053EE100E87D7A /* implot_items.cpp in Sources */,
 				2D809A392479AEA7007845B6 /* imgui_widgets.cpp in Sources */,
 				2D809A4D2479B0CD007845B6 /* implot_demo.cpp in Sources */,
 				2D809A3B2479AEA7007845B6 /* imgui_impl_opengl3.cpp in Sources */,
 				2D809A5C247A3D68007845B6 /* imgui_cvlog_view_osx.mm in Sources */,
 				2D809A3A2479AEA7007845B6 /* imgui.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DFC5D5325053C4A00E87D7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DFC5D5425053C4A00E87D7A /* implot.cpp in Sources */,
+				2DFC5D5525053C4A00E87D7A /* imgui_impl_osx.mm in Sources */,
+				2DFC5D5725053C4A00E87D7A /* imgui_draw.cpp in Sources */,
+				2DFC5D5925053C4A00E87D7A /* imgui_demo.cpp in Sources */,
+				2DFC5D5A25053C4A00E87D7A /* imgui_cvlog.cpp in Sources */,
+				2DFC5D712505428500E87D7A /* imgui_cvlog_gl_opencv.cpp in Sources */,
+				2DFC5D722505428500E87D7A /* main_glfw_opencv.cpp in Sources */,
+				2DFC5D6B25053EE100E87D7A /* implot_items.cpp in Sources */,
+				2DFC5D7525057FF500E87D7A /* imgui_impl_glfw.cpp in Sources */,
+				2DFC5D5B25053C4A00E87D7A /* imgui_widgets.cpp in Sources */,
+				2DFC5D5C25053C4A00E87D7A /* implot_demo.cpp in Sources */,
+				2DFC5D5D25053C4A00E87D7A /* imgui_impl_opengl3.cpp in Sources */,
+				2DFC5D5F25053C4A00E87D7A /* imgui.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +457,10 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/implot",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -349,6 +470,54 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/implot",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2DFC5D6525053C4A00E87D7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/implot",
+					"$(PROJECT_DIR)/imgui/examples/libs/glfw/include",
+					/usr/local/include/opencv4,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0_1/lib,
+					/usr/local/Cellar/glfw/3.3.2/lib,
+					/usr/local/Cellar/opencv/4.4.0_1/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2DFC5D6625053C4A00E87D7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/implot",
+					"$(PROJECT_DIR)/imgui/examples/libs/glfw/include",
+					/usr/local/include/opencv4,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0_1/lib,
+					/usr/local/Cellar/glfw/3.3.2/lib,
+					/usr/local/Cellar/opencv/4.4.0_1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -365,11 +534,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D80989D2479A68E007845B6 /* Build configuration list for PBXNativeTarget "CVLog" */ = {
+		2D80989D2479A68E007845B6 /* Build configuration list for PBXNativeTarget "CVLog-Cocoa-OpenGL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D80989E2479A68E007845B6 /* Debug */,
 				2D80989F2479A68E007845B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DFC5D6425053C4A00E87D7A /* Build configuration list for PBXNativeTarget "CVLog-GLFW-OpenCV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DFC5D6525053C4A00E87D7A /* Debug */,
+				2DFC5D6625053C4A00E87D7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

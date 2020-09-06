@@ -1,6 +1,6 @@
 // ImGui CVLog, see LICENSE for Copyright information (permissive MIT).
 
-#include "imgui_cvlog_demo.h"
+#include "imgui_cvlog_demo_gl.h"
 #include "imgui.h"
 #include "imgui_internal.h"
 #include "implot.h"

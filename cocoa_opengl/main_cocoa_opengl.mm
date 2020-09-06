@@ -1,7 +1,8 @@
 // ImGui CVLog, see LICENSE for Copyright information (permissive MIT).
 
-#include "imgui_cvlog_demo.h"
+#include "imgui_cvlog_demo_gl.h"
 #include "imgui.h"
+#include "implot.h"
 
 #include "imgui_cvlog_view_osx.h"
 #include "imgui/examples/imgui_impl_osx.h"
@@ -158,6 +159,7 @@ void workerThread2()
 {
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplOSX_Shutdown();
+    ImPlot::DestroyContext();
     ImGui::DestroyContext();
 }
 
@@ -174,6 +176,7 @@ void workerThread2()
     ImGui::CVLog::AddCVLogView(self.window);
 
     ImGui::CreateContext();
+    ImPlot::CreateContext();
     ImGui::StyleColorsDark();
     
     // Setup Platform/Renderer bindings
