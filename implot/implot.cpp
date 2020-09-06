@@ -2777,6 +2777,19 @@ void SetPlotQuery(const ImPlotLimits& query, ImPlotYAxis y_axis) {
     plot.QueryRect = ImRect(ImMin(p1,p2)-plot.PlotRect.Min, ImMax(p1,p2)-plot.PlotRect.Min);
 }
 
+bool IsXAxisAutoFitRequested() {
+    ImPlotContext& gp = *GImPlot;
+    return gp.FitThisFrame && gp.FitX;
+}
+
+bool IsYAxisAutoFitRequested(int y_axis_in) {
+    ImPlotContext& gp = *GImPlot;
+    IM_ASSERT_USER_ERROR(y_axis_in >= -1 && y_axis_in < IMPLOT_Y_AXES, "y_axis needs to between -1 and IMPLOT_Y_AXES");
+    IM_ASSERT_USER_ERROR(gp.CurrentPlot != NULL, "IsYAxisAutoFitRequested() Needs to be called between BeginPlot() and EndPlot()!");
+    const int y_axis = y_axis_in >= 0 ? y_axis_in : gp.CurrentPlot->CurrentYAxis;
+    return gp.FitThisFrame && gp.FitY[y_axis];
+}
+
 void AnnotateEx(double x, double y, bool clamp, const ImVec4& col, const ImVec2& off, const char* fmt, va_list args) {
     ImPlotContext& gp = *GImPlot;
     IM_ASSERT_USER_ERROR(gp.CurrentPlot != NULL, "Annotate() needs to be called between BeginPlot() and EndPlot()!");

@@ -573,6 +573,10 @@ IMPLOT_API ImPlotLimits GetPlotQuery(ImPlotYAxis y_axis = IMPLOT_AUTO);
 // Set the current plot query bounds. Query must be enabled with ImPlotFlags_Query.
 IMPLOT_API void SetPlotQuery(const ImPlotLimits& query, ImPlotYAxis y_axis = IMPLOT_AUTO);
 
+// Returns true if Auto-Fit was requested for the corresponding axix.
+bool IsXAxisAutoFitRequested();
+bool IsYAxisAutoFitRequested(int y_axis_in = -1);
+
 //-----------------------------------------------------------------------------
 // Plot Tools
 //-----------------------------------------------------------------------------
