@@ -94,7 +94,7 @@ void workerThread2()
 int main(int argc, const char* argv[])
 {
     ImGui::CVLog::OpenCVGLWindow window;
-    window.initializeContexts("CVLog + OpenCV Demo", 1280, 960);
+    window.initializeContexts("CVLog + OpenCV Demo", 1280, 720);
     
     ImGui::CVLog::AddMenuBarCallback("AppMenu", []() {
         if (ImGui::BeginMenu("MyApp"))

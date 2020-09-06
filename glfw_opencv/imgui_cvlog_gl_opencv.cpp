@@ -52,6 +52,22 @@ void OpenCVGLWindow::initializeContexts (const std::string& title,
                                          int windowHeight)
 {
     ImGui::CreateContext();
+    
+    // Enable docking mode by default.
+    auto& io = ImGui::GetIO();
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+    // Uncomment this to enable viewpoints too and move ImGui windows into independent platform windows.
+    // io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+
+    // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look
+    // identical to regular ones.
+    ImGuiStyle& style = ImGui::GetStyle();
+    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+    {
+        style.WindowRounding = 0.0f;
+        style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+    }
+    
     ImPlot::CreateContext();
         
     // Setup Platform/Renderer bindings
