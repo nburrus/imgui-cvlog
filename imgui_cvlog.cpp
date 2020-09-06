@@ -12,6 +12,7 @@
 #include <fstream>
 #include <filesystem>
 #include <unordered_map>
+#include <mutex>
 
 namespace fs = std::filesystem;
 
@@ -41,6 +42,9 @@ public:
     // our own settings handler and have persistent data.
     bool isVisible() const { return _isVisible; };
     bool& isVisibleRef() { return _isVisible; };
+    
+    bool isDocked() const { return _isDocked; }
+    bool& isDockedRef() { return _isDocked; }
 
 public:
     // Can be nullptr if no window was yet created, but properties were specified.
@@ -49,13 +53,23 @@ public:
     std::string category = defaultCategoryName();
     
     ImVec2 preferredContentSize = ImVec2(320,240);
-    
-    ImVec2 preferredWindowSize() const
+
+    float extraWindowHeight() const
     {
         auto& style = ImGui::GetStyle();
-        float extraHeight = style.FramePadding.y * 2.f + ImGui::GetFontSize();
+        return style.FramePadding.y * 2.f + ImGui::GetFontSize();
+    }
+
+    void setPreferredWindowSize(ImVec2 windowSize)
+    {
+        preferredContentSize = windowSize;
+        preferredContentSize.y += extraWindowHeight();
+    }
+
+    ImVec2 preferredWindowSize() const
+    {
         auto finalSize = preferredContentSize;
-        finalSize.y += extraHeight;
+        finalSize.y += extraWindowHeight();
         return finalSize;
     }
     
@@ -76,6 +90,7 @@ private:
     std::string _name;
     ImGuiID _id = 0; // == ImHashStr(name)
     bool _isVisible = true;
+    bool _isDocked = false;
 };
 
 struct WindowCategory
@@ -105,15 +120,16 @@ public:
         data.window = window;
         window->imGuiData = &data;
         
-        auto& IO = ImGui::GetIO();
+        auto& vp = *ImGui::GetMainViewport();
+        
         const auto preferredWindowSize = data.preferredWindowSize();
         data.layoutUpdateOnNextFrame.size = preferredWindowSize;
         
-        const float availableWidth = std::max(0.f, (IO.DisplaySize.x - windowListWidth - preferredWindowSize.x));
-        const float availableHeight = std::max(0.f, (IO.DisplaySize.y - preferredWindowSize.y));
+        const float availableWidth = std::max(0.f, (vp.Size.x - windowListWidth - preferredWindowSize.x));
+        const float availableHeight = std::max(0.f, (vp.Size.y - preferredWindowSize.y));
         
-        data.layoutUpdateOnNextFrame.pos.x = windowListWidth + (float(rand()) / float(RAND_MAX)) * availableWidth;
-        data.layoutUpdateOnNextFrame.pos.y = (float(rand()) / float(RAND_MAX)) * availableHeight;
+        data.layoutUpdateOnNextFrame.pos.x = vp.Pos.x + windowListWidth + (float(rand()) / float(RAND_MAX)) * availableWidth;
+        data.layoutUpdateOnNextFrame.pos.y = vp.Pos.y + (float(rand()) / float(RAND_MAX)) * availableHeight;
         data.layoutUpdateOnNextFrame.imGuiCond = ImGuiCond_FirstUseEver;
         data.layoutUpdateOnNextFrame.hasData = true;
         return data;
@@ -164,7 +180,7 @@ public:
     
     void TileAndScaleVisibleWindows()
     {
-        auto& IO = ImGui::GetIO();
+        auto& vp = *ImGui::GetMainViewport();
         
         auto isWindowHeightSmaller = [](const Window* w1, const Window* w2) {
             if (w1->imGuiData->preferredContentSize.y < w2->imGuiData->preferredContentSize.y)
@@ -182,10 +198,10 @@ public:
         for (const auto& win : _windows)
             windowsSortedBySize.insert (win.get());
 
-        const float startX = windowListWidth;
-        const float endX = IO.DisplaySize.x;
-        const float startY = 0;
-        const float endY = IO.DisplaySize.y;
+        const float startX = windowListWidth + vp.Pos.x;
+        const float endX = vp.Pos.x + vp.Size.x;
+        const float startY = vp.Pos.y;
+        const float endY = vp.Pos.y + vp.Size.y;
         
         float scaleFactor = 1.0f;
         bool didFit = false;
@@ -202,6 +218,10 @@ public:
             {
                 auto* winData = win->imGuiData;
                 if (!winData->isVisible())
+                    continue;
+
+                // Don't reorganize docked windows.
+                if (winData->isDocked())
                     continue;
                 
                 auto preferredSize = winData->preferredWindowSize();
@@ -267,9 +287,9 @@ public:
     
     void Render()
     {
-        auto& IO = ImGui::GetIO();
-        ImGui::SetNextWindowPos(ImVec2(0,0), ImGuiCond_Always);
-        ImGui::SetNextWindowSize(ImVec2(windowListWidth, IO.DisplaySize.y), ImGuiCond_Always);
+        auto& vp = *ImGui::GetMainViewport();
+        ImGui::SetNextWindowPos(vp.Pos, ImGuiCond_Always);
+        ImGui::SetNextWindowSize(ImVec2(windowListWidth, vp.Size.y), ImGuiCond_Always);
         if (ImGui::Begin("Window List",
                          nullptr,
                          ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_MenuBar))
@@ -314,13 +334,18 @@ public:
                             if (p.path().extension() != ".ini")
                                 continue;
                             
-                            if (ImGui::MenuItem(p.path().filename().c_str()))
+                            if (ImGui::MenuItem(p.path().filename().string().c_str()))
                             {
-                                ImGui::LoadIniSettingsFromDisk(p.path().c_str());
+                                ImGui::LoadIniSettingsFromDisk(p.path().string().c_str());
                             }
                         }
                                                 
                         ImGui::EndMenu();
+                    }
+
+                    if (ImGui::MenuItem("Clear All"))
+                    {
+                        ImGui::CVLog::ClearAll();
                     }
                     
                     ImGui::EndMenu();
@@ -423,6 +448,9 @@ public:
                     
                 if (winData->window->Begin(&winData->isVisibleRef()))
                 {
+                    winData->setPreferredWindowSize(ImGui::GetWindowSize());
+                    winData->isDockedRef() = ImGui::IsWindowDocked();
+
                     if (ImGui::IsItemHovered())
                     {
                         ImGui::BeginTooltip();
