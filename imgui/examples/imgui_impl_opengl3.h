@@ -5,6 +5,7 @@
 
 // Implemented features:
 //  [X] Renderer: User texture binding. Use 'GLuint' OpenGL texture identifier as void*/ImTextureID. Read the FAQ about ImTextureID!
+//  [X] Renderer: Multi-viewport support. Enable with 'io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable'.
 //  [x] Renderer: Desktop GL only: Support for large meshes (64k+ vertices) with 16-bit indices.
 
 // You can copy and use unmodified imgui_impl_* files in your project. See main.cpp for an example of using this.
@@ -24,10 +25,6 @@
 #pragma once
 #include "imgui.h"      // IMGUI_IMPL_API
 
-#ifndef GL_SILENCE_DEPRECATION
-#define GL_SILENCE_DEPRECATION 1
-#endif
-
 // Backend API
 IMGUI_IMPL_API bool     ImGui_ImplOpenGL3_Init(const char* glsl_version = NULL);
 IMGUI_IMPL_API void     ImGui_ImplOpenGL3_Shutdown();
@@ -44,9 +41,6 @@ IMGUI_IMPL_API void     ImGui_ImplOpenGL3_DestroyDeviceObjects();
 //#define IMGUI_IMPL_OPENGL_ES2     // Auto-detected on Emscripten
 //#define IMGUI_IMPL_OPENGL_ES3     // Auto-detected on iOS/Android
 
-#include <OpenGL/gl3.h>
-#define IMGUI_IMPL_OPENGL_LOADER_CUSTOM <OpenGL/gl3ext.h>
-
 // Attempt to auto-detect the default Desktop GL loader based on available header files.
 // If auto-detection fails or doesn't select the same GL loader file as used by your application,
 // you are likely to get a crash in ImGui_ImplOpenGL3_Init().
@@ -56,6 +50,7 @@ IMGUI_IMPL_API void     ImGui_ImplOpenGL3_DestroyDeviceObjects();
  && !defined(IMGUI_IMPL_OPENGL_LOADER_GL3W) \
  && !defined(IMGUI_IMPL_OPENGL_LOADER_GLEW) \
  && !defined(IMGUI_IMPL_OPENGL_LOADER_GLAD) \
+ && !defined(IMGUI_IMPL_OPENGL_LOADER_GLAD2) \
  && !defined(IMGUI_IMPL_OPENGL_LOADER_GLBINDING2) \
  && !defined(IMGUI_IMPL_OPENGL_LOADER_GLBINDING3) \
  && !defined(IMGUI_IMPL_OPENGL_LOADER_CUSTOM)
@@ -75,6 +70,8 @@ IMGUI_IMPL_API void     ImGui_ImplOpenGL3_DestroyDeviceObjects();
     #define IMGUI_IMPL_OPENGL_LOADER_GLEW
 #elif __has_include(<glad/glad.h>)
     #define IMGUI_IMPL_OPENGL_LOADER_GLAD
+#elif __has_include(<glad/gl.h>)
+    #define IMGUI_IMPL_OPENGL_LOADER_GLAD2
 #elif __has_include(<GL/gl3w.h>)
     #define IMGUI_IMPL_OPENGL_LOADER_GL3W
 #elif __has_include(<glbinding/glbinding.h>)
