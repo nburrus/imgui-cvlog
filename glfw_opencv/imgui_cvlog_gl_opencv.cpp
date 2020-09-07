@@ -217,7 +217,7 @@ public:
             {
                 case CV_8UC1:
                 {
-                    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, imageToShow.cols, imageToShow.rows, 0, GL_RED, GL_UNSIGNED_BYTE, imageToShow.data);
+                    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, imageToShow.cols, imageToShow.rows, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, imageToShow.data);
                     break;
                 }
                     
@@ -235,7 +235,7 @@ public:
                     
                 case CV_32F:
                 {
-                    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, imageToShow.cols, imageToShow.rows, 0, GL_RED, GL_FLOAT, imageToShow.data);
+                    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, imageToShow.cols, imageToShow.rows, 0, GL_LUMINANCE, GL_FLOAT, imageToShow.data);
                     break;
                 }
                     
