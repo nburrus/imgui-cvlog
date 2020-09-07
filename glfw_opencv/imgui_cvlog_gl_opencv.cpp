@@ -11,9 +11,6 @@
 #include "imgui/examples/imgui_impl_glfw.h"
 #include "implot.h"
 
-#include <OpenGL/gl3.h>
-#define GL_SILENCE_DEPRECATION 1
-
 #include <opencv2/core.hpp>
 
 #include <thread>
@@ -215,7 +212,7 @@ public:
         {
             // Upload pixels into texture
             glBindTexture(GL_TEXTURE_2D, _textureID);
-            glPixelStorei(GL_UNPACK_ROW_LENGTH, imageToShow.step / imageToShow.elemSize());
+            glPixelStorei(GL_UNPACK_ROW_LENGTH, (GLint)(imageToShow.step / imageToShow.elemSize()));
             switch (imageToShow.type())
             {
                 case CV_8UC1:

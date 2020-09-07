@@ -2,7 +2,7 @@
 
 #include "imgui_cvlog.h"
 
-#include "imgui_internal.h"
+#include <imgui/imgui_internal.h>
 
 #include <map>
 #include <set>

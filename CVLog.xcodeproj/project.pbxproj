@@ -22,7 +22,6 @@
 		2D809A502479B7D5007845B6 /* imgui_cvlog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A4E2479B7D5007845B6 /* imgui_cvlog.cpp */; };
 		2D809A5C247A3D68007845B6 /* imgui_cvlog_view_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A5A247A3D68007845B6 /* imgui_cvlog_view_osx.mm */; };
 		2DFC5D5425053C4A00E87D7A /* implot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A482479B0CD007845B6 /* implot.cpp */; };
-		2DFC5D5525053C4A00E87D7A /* imgui_impl_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A352479AEA7007845B6 /* imgui_impl_osx.mm */; };
 		2DFC5D5725053C4A00E87D7A /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A382479AEA7007845B6 /* imgui_draw.cpp */; };
 		2DFC5D5925053C4A00E87D7A /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A372479AEA7007845B6 /* imgui_demo.cpp */; };
 		2DFC5D5A25053C4A00E87D7A /* imgui_cvlog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D809A4E2479B7D5007845B6 /* imgui_cvlog.cpp */; };
@@ -325,7 +324,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DFC5D5425053C4A00E87D7A /* implot.cpp in Sources */,
-				2DFC5D5525053C4A00E87D7A /* imgui_impl_osx.mm in Sources */,
 				2DFC5D5725053C4A00E87D7A /* imgui_draw.cpp in Sources */,
 				2DFC5D5925053C4A00E87D7A /* imgui_demo.cpp in Sources */,
 				2DFC5D5A25053C4A00E87D7A /* imgui_cvlog.cpp in Sources */,
@@ -482,6 +480,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
@@ -504,6 +503,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
