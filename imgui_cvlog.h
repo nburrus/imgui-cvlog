@@ -41,6 +41,15 @@ Clear the given window.
 void ClearWindow(const char* name);
 
 /*!
+Create an empty window.
+This is useful to just use it as a placeholder to add custom widgets with SetWindowPreRenderCallback.
+Creating it this way will ensure that it'll be part of the layout.
+
+- Thread safety: any thread.
+*/
+void CreateEmptyWindow(const char* name);
+
+/*!
  Run arbitrary ImGui code for each frame (e.g add some extra windows).
 
 - Thread safety: any thread.

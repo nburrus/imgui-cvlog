@@ -807,5 +807,42 @@ void Render()
     g_Context->windowManager.Render();
 }
 
+class EmptyWindow : public Window
+{
+public:
+    void Clear() override {}
+    
+    bool Begin(bool* closed) override
+    {
+        return ImGui::Begin(name(), closed, ImGuiWindowFlags_HorizontalScrollbar);
+    }
+    
+    void Render() override
+    {
+        Begin(nullptr);
+        ImGui::End();
+    }
+};
+
+
+void CreateEmptyWindow(const char* windowName)
+{
+    EmptyWindow* window = FindWindow<EmptyWindow> (windowName);
+    
+    // The window exists, just update the data.
+    if (window)
+    {
+        return;
+    }
+    
+    // Need to create it, enqueue that in the list of tasks for the next frame;
+    {
+        std::string windowNameCopy = windowName;
+        RunOnceInImGuiThread([windowNameCopy](){
+            EmptyWindow* emptyWindow = FindOrCreateWindow<EmptyWindow>(windowNameCopy.c_str());
+        });
+    }
+}
+
 } // CVLog
 } // ImGui
