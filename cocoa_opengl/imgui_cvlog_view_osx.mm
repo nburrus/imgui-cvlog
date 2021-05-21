@@ -3,8 +3,8 @@
 #include "imgui_cvlog_view_osx.h"
 #include "imgui_cvlog.h"
 
-#include <imgui/examples/imgui_impl_osx.h>
-#include <imgui/examples/imgui_impl_opengl3.h>
+#include <imgui/backends/imgui_impl_osx.h>
+#include <imgui/backends/imgui_impl_opengl3.h>
 #include <implot/implot.h>
 
 #import <Cocoa/Cocoa.h>
@@ -155,7 +155,10 @@ void AddCVLogView(NSWindow* window)
     [window setContentView:view];
     
     if ([view openGLContext] == nil)
-        NSLog(@"No OpenGL Context!");    
+        NSLog(@"No OpenGL Context!");
+    
+    // Make it current so ImGui_ImplOpenGL3_Init can use it.
+    [[view openGLContext] makeCurrentContext];
 }
 
 } // ImGui
