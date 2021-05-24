@@ -140,6 +140,8 @@ void AddCVLogView(NSWindow* window)
 {
     NSOpenGLPixelFormatAttribute attrs[] =
     {
+        // Support shader version 150.
+        NSOpenGLPFAOpenGLProfile, NSOpenGLProfileVersion4_1Core,
         NSOpenGLPFADoubleBuffer,
         NSOpenGLPFADepthSize, 32,
         0
