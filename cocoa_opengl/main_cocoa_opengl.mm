@@ -181,7 +181,7 @@ void workerThread2()
     
     // Setup Platform/Renderer bindings
     ImGui_ImplOSX_Init();
-    ImGui_ImplOpenGL3_Init("#version 120"); // the default 130 fails for me.
+    ImGui_ImplOpenGL3_Init("#version 150"); // the default 130 fails for me.
     
     // Initial the CVLog settings for the current thread.
     ImGui::CVLog::Init();
